@@ -1,0 +1,22 @@
+Personal Project Final Requirements
+
+(to be complete at the end of the term)
+
+[Done]
+- Built in NextJS
+- Deployed using Amplify
+- Code managed on GitHub
+- Multiple pages with page routing
+
+
+
+[Working_On_Next_Week] (adding ability to add movies and whatnot)
+- Pages are componentized and passing props is used
+- At least one API used to retrieve or store data (API key hidden in environment file)
+
+
+
+[To_Do]
+- Styled with tailwind CSS (rn got basic css styleing)
+- Dynamic pages where state changes update parts of page (useState)
+- Authentication use to provide features only a sign-in'd user can access (only people with this can add movies reviews)

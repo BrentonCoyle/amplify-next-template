@@ -32,21 +32,9 @@ export default function App() {
   }
 
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
+    <main className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
+      <p>Welcome to my movie website, This will be a place where I can update and review movies into a database</p>
+        
     </main>
   );
 }
