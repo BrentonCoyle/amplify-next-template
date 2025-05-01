@@ -63,7 +63,6 @@ export default function MoviesPage() {
         {movie.poster && (
           <img
             src={movie.poster}
-            alt={movie.title}
             className=""
           />
         )}
