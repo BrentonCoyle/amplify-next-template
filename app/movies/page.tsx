@@ -4,10 +4,45 @@ import { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
 
+
+
 const client = generateClient<Schema>();
 
 export default function MoviesPage() {
+  // Comment one out when testing
+  
   const [movies, setMovies] = useState<Array<Schema["Movie"]["type"]>>([]);
+/* 
+
+  const [movies, setMovies] = useState([
+    {
+      id: "1",
+      title: "Inception",
+      poster: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+      description: "A skilled thief leads a team into people's dreams.",
+      reviewText: "Mind-bending and brilliant.",
+      reviewScore: 5,
+    },
+    {
+      id: "2",
+      title: "The Matrix",
+      poster: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_SX300.jpg",
+      description: "A hacker discovers the reality he knows is a simulation.",
+      reviewText: "Revolutionary sci-fi action.",
+      reviewScore: 5,
+    },
+    {
+      id: "3",
+      title: "Interstellar",
+      poster: "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_SX300.jpg",
+      description: "Explorers travel through a wormhole in space to save humanity.",
+      reviewText: "Visually stunning and emotionally powerful.",
+      reviewScore: 4,
+    },
+  ]);
+   */
+
+
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -19,21 +54,30 @@ export default function MoviesPage() {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Movie List</h1>
-      <ul className="space-y-4">
-        {movies.map((movie) => (
-          <li key={movie.id} className="border p-4 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold">{movie.title}</h2>
-            <p>{movie.description}</p>
-            {movie.poster && (
-              <img src={movie.poster} className="mt-2 w-40" />
-            )}
-            <p className="mt-1 italic text-sm">Review: {movie.reviewText}</p>
-            <p>Score: {movie.reviewScore}/5</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+
+  <div className="grid grid-cols-3  ">
+    {movies.map((movie) => (
+      <div key={movie.id}
+        className="flex flex-col justify-center items-center white border"
+      >
+        {movie.poster && (
+          <img
+            src={movie.poster}
+            alt={movie.title}
+            className=""
+          />
+        )}
+        <h2 className="text-lg font-bold text-gray-800">{movie.title}</h2>
+        <p className="text-sm text-gray-600 mt-1">{movie.description}</p>
+        <p className="text-sm mt-2 text-blue-600 italic">Review: {movie.reviewText}</p>
+        <p className="text-sm font-medium mt-1">Score: {movie.reviewScore}/5</p>
+      </div>
+    ))}
+  </div>
+
+
+
+
+
   );
 }
