@@ -14,7 +14,7 @@ export default function Navbar() {
           <Link href="/movies">Movies</Link>
         </li>
         <li>
-          <Link href="/sign">Sign In/Sign Up</Link>
+          <Link href="/sign">Sign In</Link>
         </li>
       </ul>
     </nav>

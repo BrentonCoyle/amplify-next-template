@@ -16,7 +16,14 @@ Personal Project Final Requirements
 
 
 
-[To_Do]
+[To_Do_Required]
 - Styled with tailwind CSS (rn got basic css styleing)
 - Dynamic pages where state changes update parts of page (useState)
 - Authentication use to provide features only a sign-in'd user can access (only people with this can add movies reviews)
+
+[To_Do_What_I_Want]
+- Search Bar For Movies/TV
+- TV Section
+- Possibly Comments or other people Reviews
+- Tags for content like filters
+- 
