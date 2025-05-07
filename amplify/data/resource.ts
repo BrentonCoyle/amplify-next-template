@@ -11,7 +11,9 @@ const schema = a.schema({
     title: a.string(),
     poster: a.string(),
     description: a.string(),
-    reviewText: a.string(),
+    type: a.string(),
+    review: a.string(),
+    spoilerReview: a.string(),
     reviewScore: a.integer(),
   }).authorization((allow) => [allow.publicApiKey()]),
 });

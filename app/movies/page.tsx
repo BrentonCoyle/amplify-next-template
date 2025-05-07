@@ -68,7 +68,7 @@ export default function MoviesPage() {
         )}
         <h2 className="text-lg font-bold text-gray-800">{movie.title}</h2>
         <p className="text-sm text-gray-600 mt-1">{movie.description}</p>
-        <p className="text-sm mt-2 text-blue-600 italic">Review: {movie.reviewText}</p>
+        <p className="text-sm mt-2 text-blue-600 italic">Review: {movie.review}</p>
         <p className="text-sm font-medium mt-1">Score: {movie.reviewScore}/5</p>
       </div>
     ))}
