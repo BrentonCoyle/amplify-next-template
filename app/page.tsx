@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
-      <p>Welcome to my movie website, This will be a place where I can update and review movies into a database</p>
+      <p>Welcome to my movie website, This will be a place where I can update and review movies into a database d:</p>
         
     </main>
   );

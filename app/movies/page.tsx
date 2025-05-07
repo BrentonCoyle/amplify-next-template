@@ -58,7 +58,7 @@ export default function MoviesPage() {
   <div className="grid grid-cols-3  ">
     {movies.map((movie) => (
       <div key={movie.id}
-        className="flex flex-col justify-center items-center white border"
+        className="flex flex-col justify-center items-center"
       >
         {movie.poster && (
           <img
