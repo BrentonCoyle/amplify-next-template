@@ -4,16 +4,13 @@ import { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
 
-
-
 const client = generateClient<Schema>();
 
-export default function MoviesPage() {
-  // Comment one out when testing
-  
+export default function MoviesDetailPage({ params }: { params: { id: string } }) {
   const [movies, setMovies] = useState<Array<Schema["Movie"]["type"]>>([]);
- 
-/** 
+  const movieId = params.id;
+
+  /** 
   const [movies, setMovies] = useState([
     {
       id: "1",
@@ -40,8 +37,7 @@ export default function MoviesPage() {
       reviewScore: 4,
     },
   ]);
-   */
-
+  */
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -52,38 +48,29 @@ export default function MoviesPage() {
     fetchMovies();
   }, []);
 
+  const movie = movies.find((m) => m.id === movieId);
+
+  if (!movie) {
+    return <div>Movie not found.</div>;
+  }
+
   return (
-
-  <div className="grid grid-cols-3  ">
-    {movies.map((movie) => (
-
-      <a href={`/movies/${movie.id}`} className="no-underline text-inherit">
-
-
-      <div key={movie.id} className="flex flex-col justify-center items-center">
-        {movie.poster && (
-          <img
-            src={movie.poster}
-            className=""
-          />
-        )}
-
-       
-          <h2 className="text-lg font-bold text-gray-800">{movie.title}</h2>
-          <p className="text-sm text-gray-600 mt-1">{movie.description}</p>
-          <p className="text-sm mt-2 text-blue-600 italic">Review: {movie.review}</p>
-          <p className="text-sm font-medium mt-1">Score: {movie.reviewScore}/5</p>
-       
-      
+    <div className="flex flex-row justify-between items-center w-full max-w-4xl mx-auto p-4 gap-8">
+      {/* Text on the left */}
+      <div className="flex-1">
+        <h2 className="text-3xl font-bold text-gray-800">{movie.title}</h2>
+        <p className="text-base text-gray-600 mt-1">{movie.description}</p>
+        <p className="text-base mt-2 text-blue-600 italic">Review: {movie.review}</p>
+        <p className="text-base font-medium mt-1">Score: {movie.reviewScore}/5</p>
+        <p className="text-sm text-gray-400 mt-2">Movie ID: {movie.id}</p>
       </div>
-      
-      </a>
-    ))}
-  </div>
 
-
-
-
-
+      {/* Image on the right */}
+      {movie.poster && (
+        <div className="flex-shrink-0">
+          <img src={movie.poster} className="w-64 rounded shadow"  />
+        </div>
+      )}
+    </div>
   );
 }
